@@ -1,22 +1,36 @@
 // main.js
 import { getQuotes } from './quotes.js';
 import { shuffleArray} from './utilities.js';
+import { retrieveItemsFromArray } from './utilities.js'; 
+import { getObjectValues } from './utilities.js';
+import { displayItems } from './utilities.js';
 
-const quotes = shuffleArray(getQuotes());
+const items = retrieveItemsFromArray(shuffleArray(getQuotes()), 4);
+const quotes = shuffleArray(getObjectValues(items, "quote"));
+const authors = shuffleArray(getObjectValues(items, "author"));
+console.log(items, quotes, authors);
 
-for (let i = 0; i < 4; i++) {
-    const item = quotes[i];
-    const { quote, author } = item;
+displayItems(quotes, 4, "wrapper-quotes", "quote", ".start");
+displayItems(authors, 4, "wrapper-authors", "author", ".start");
 
-    const body = document.querySelector("body");
-    const div = document.createElement("div");
-    const paraQuote = document.createElement("p");
-    const paraAuthor = document.createElement("p");
+document.querySelectorAll(".quote").forEach(item => {
+    item.addEventListener('click', () => {
+       const clone = item.cloneNode(true);
+       clone.classList.remove("quote");
+       clone.classList.add("answer-quote");
+       const answerSection = document.querySelector(".wrapper-answer-quotes");
+       answerSection.append(clone);
+       item.remove(); 
+    });
+});
 
-    div.classList.add("wrapper-quote");
-    paraQuote.textContent = quote;
-    paraAuthor.textContent = author;
-
-    div.append(paraQuote, paraAuthor);
-    body.append(div);
-}
+document.querySelectorAll(".author").forEach(item => {
+    item.addEventListener('click', () => {
+       const clone = item.cloneNode(true);
+       clone.classList.remove("author");
+       clone.classList.add("answer-author");
+       const answerSection = document.querySelector(".wrapper-answer-authors");
+       answerSection.append(clone);
+       item.remove(); 
+    });
+});
