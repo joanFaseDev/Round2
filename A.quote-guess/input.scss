@@ -35,7 +35,7 @@ html {
     font-family: $default-font-family;
 }
 
-.start, .end {
+.feedback, .start, .end {
     width: 80%;
     margin: 2rem auto;
     display: grid;
@@ -44,17 +44,17 @@ html {
     grid-template-columns: 1fr 100px 1fr;
 }
 
-.wrapper-quotes, .wrapper-authors, .wrapper-answer-quotes, .wrapper-answer-authors {
+.feedback-quotes, .feedback-authors, .wrapper-quotes, .wrapper-authors, .wrapper-answer-quotes, .wrapper-answer-authors {
     display: grid;
     row-gap: 2rem;
     justify-items: center;
     align-items: start;
 }
 
-.wrapper-quotes, .wrapper-answer-quotes {
+.feedback-quotes, .wrapper-quotes, .wrapper-answer-quotes {
     grid-column: 1 / 2;
 }
-.wrapper-authors, .wrapper-answer-authors {
+.feedback-authors, .wrapper-authors, .wrapper-answer-authors {
     grid-column: 3 / 4;
 }
 
@@ -80,6 +80,7 @@ html {
     letter-spacing: 1px;
     background-color: $bg-quote;
     color: $c-quote;
+    cursor: pointer;
 }
 
 .author {

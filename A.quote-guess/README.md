@@ -17,9 +17,20 @@ This project is about buildind a small-scope application using HTML, CSS, vanill
 - [X] Create a function to display on screen each element within an array.
 - [X] Display the quotes in a column located to the left of the screen.
 - [X] Display the authors in a column located to the right of the screen.
+
 - [] Grow in size the number of quotes in the dedicated file.
+- [X] Create a condition forcing user to select a quote before selecting an author.
+- [X] Create a condition forcing user to select an author if its last element clicked was a quote.
+- [X] Once an element is clicked and the logic applied, store in a variable the type of this element ('quote' or 'author').
+- [X] If the last element clicked was a quote, the user MUST select an author.
+- [X] If the last element clicked was an author AND there are still quotes and authors left in the pool THEN the user MUST select a quote.
+- [] Add an HTML element as visual feedback to clearly point to the user what type of data he CAN click ('quote' or 'author') at any moment.
+- [] Add a 'gray' color style to 'quote' or 'author' data when they can't be clicked.
+- [X] Create a function to remove all previous visual feedbacks before adding new ones.
+- [X] If there are no more quotes/authors in the pool THEN the game is over and the result can be compute.
 - [] If a quote or an author is clicked:
     - [X] The element is clone then placed within a special container with a dedicated style. The original element is removed from the DOM.
+    - [X] Refactor the code to clone and display the clicked elements.
     - [] All other quotes/authors (depending on what type of data the user has clicked) are disabled and can't be clicked until an author/quote has been associated.
     - [X] Once quote and author have been selected they're horizontally aligned in the container.
     - [] Then the user can once again select a quote or author in the elements left in the columns.

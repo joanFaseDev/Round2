@@ -58,3 +58,24 @@ export function displayItems(arr, numberItems, wrapperClass, itemClass, parentEl
     }
     parent.append(wrapper);
 }
+
+// Clone an HTML element then place it inside a parent element. Remove the original one. 
+export function validateItem(item, classToRemove, classToAdd, classParent) {
+    const clone = item.cloneNode(true);
+    clone.classList.remove(classToRemove);
+    clone.classList.add(classToAdd);
+    const answerSection = document.querySelector(classParent);
+    answerSection.append(clone);
+    item.remove();
+}
+
+// Check the value of an object specific property
+export function checkPropertyValue(obj, property, value) {
+    return obj[property] === value;
+}
+
+// Removed all child element from a HTML parent element
+export function clearAllChildren(parentClass) {
+    const parent = Array.from(document.querySelector(`.${parentClass}`).children);
+    parent.forEach((item) => item.remove());
+}

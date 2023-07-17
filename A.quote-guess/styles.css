@@ -11,7 +11,7 @@ html {
   font-family: "Merriweather", serif;
 }
 
-.start, .end {
+.feedback, .start, .end {
   width: 80%;
   margin: 2rem auto;
   display: grid;
@@ -20,18 +20,18 @@ html {
   grid-template-columns: 1fr 100px 1fr;
 }
 
-.wrapper-quotes, .wrapper-authors, .wrapper-answer-quotes, .wrapper-answer-authors {
+.feedback-quotes, .feedback-authors, .wrapper-quotes, .wrapper-authors, .wrapper-answer-quotes, .wrapper-answer-authors {
   display: grid;
   row-gap: 2rem;
   justify-items: center;
   align-items: start;
 }
 
-.wrapper-quotes, .wrapper-answer-quotes {
+.feedback-quotes, .wrapper-quotes, .wrapper-answer-quotes {
   grid-column: 1/2;
 }
 
-.wrapper-authors, .wrapper-answer-authors {
+.feedback-authors, .wrapper-authors, .wrapper-answer-authors {
   grid-column: 3/4;
 }
 
@@ -57,6 +57,7 @@ html {
   letter-spacing: 1px;
   background-color: #F15BB5;
   color: #FFF;
+  cursor: pointer;
 }
 
 .author {
