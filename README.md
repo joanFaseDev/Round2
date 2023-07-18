@@ -23,4 +23,12 @@ I guess I now know what to do tomorrow!
 I worked on the Quote Guess application and wrote the code to prevent the user from picking the same type of data twice in a row ("quote" or "author"). If a quote was clicked before then the next clicked element must be an author and if an author was clicked, JavaScript checked if there are still authors elements in the pool. If there is, the loop continues. If not, the result screen that I have yet to write will pop up.
 I also refactored some of the code I previously wrote to reuse it as much as possible. Tomorrow, I'll implement visual feedback for the user and will finish writing the logic to associate quote and author elements.
 
-[Day 3 - Quote Guess]()
+[Day 3 - Quote Guess](https://github.com/joanFaseDev/Round2/commit/5fec1ca2377b1a36908503b888f72ff3a14add60)
+
+
+# Day 4 - July 18, 2023
+
+I worked almost entirely on visual feedbacks today. I created a dynamic text with a tweening icon to clearly point out to the user which element ('quote' or 'author') it can pick at any time. I also added a bit of css transition to the hovered element to highlight what is currently focused by the user. I made it so the various previous styles are always removed once an element is clicked then a new style related to the type of data the user need to pick (once again 'quote' or 'author') next is added.
+Finally, I added more quotes to the pool to create a little more variety. The ideal solution would probably to get a JSON files with hundred of quote/author pairs I could select from but considering the scope of this application I found my solution ok for now. Tomorrow, I'll wrote the logic to keep in memory each pair quote/author selected by the user so I can compare them at the end of the game and compute the result.
+
+[Day 4 - Quote Guess]()
