@@ -7,6 +7,9 @@ import { displayItems } from './utilities.js';
 import { validateItem } from './utilities.js';
 import { checkPropertyValue } from './utilities.js';
 import { clearAllChildren } from './utilities.js';
+import { createFeedbackElement } from './utilities.js';
+import { addStylesToElement } from './utilities.js';
+import { removeStylesToElement } from './utilities.js';
 
 
 const items = retrieveItemsFromArray(shuffleArray(getQuotes()), 4);
@@ -28,6 +31,14 @@ window.addEventListener('load', (evt) => {
     document.querySelectorAll(".quote").forEach(item => {
         item.addEventListener('click', () => {
             if (checkPropertyValue(handler, "lastItemClicked", "author")) {
+                clearAllChildren("feedback-quotes");
+                removeStylesToElement("quote", ["select-quote", "pointer"]);
+                addStylesToElement("author", ["select-author", "pointer"]);
+                createFeedbackElement(
+                    "feedback-authors", 
+                    ["fa-solid", "fa-arrow-down", "fa-bounce", "fa-xl"], 
+                    "Now click on its author"
+                );
                 validateItem(item, "quote", "answer-quote", ".wrapper-answer-quotes");
                 handler.setLastItem("quote");
             }
@@ -37,27 +48,40 @@ window.addEventListener('load', (evt) => {
     document.querySelectorAll(".author").forEach(item => {
         item.addEventListener('click', () => {
             if (checkPropertyValue(handler, "lastItemClicked", "quote")) {
+                clearAllChildren("feedback-authors");
+                removeStylesToElement("author", ["select-author", "pointer"]);
+                addStylesToElement("quote", ["select-quote", "pointer"]);
+                createFeedbackElement(
+                    "feedback-quotes", 
+                    ["fa-solid", "fa-arrow-down", "fa-bounce", "fa-xl"], 
+                    "First, click on a quote"
+                );
                 validateItem(item, "author", "answer-author", ".wrapper-answer-authors");
                 // Every time a quote/author pair is added, check if there are still authors left to associate.
                 const wrapperAuthors = document.querySelector(".wrapper-authors");
+                // Game is over and result screen is displayed.
                 if (wrapperAuthors.childElementCount === 0) {
-                    // Game is over and result screen is displayed.
+                    // Clear all visual feedbacks now that the game is over
+                    clearAllChildren("feedback-quotes");
+                    removeStylesToElement("quote", ["select-quote", "pointer"]);
+                // There is still authors left to associate
                 } else {
-                    // There is still authors left to associate
                     handler.setLastItem("author");
                 }   
             }
         });
     });
 
-    if (checkPropertyValue(handler, "lastItemClicked", "author")) {
-        clearAllChildren("feedback-quotes");
+    // Must be call once when the page is fully loaded as the user as yet to click on an element.
+    clearAllChildren("feedback-quotes");
+    clearAllChildren("feedback-authors");
+    createFeedbackElement(
+        "feedback-quotes", 
+        ["fa-solid", "fa-arrow-down", "fa-bounce", "fa-xl"], 
+        "First, click on a quote"
+    );
 
-        const feedbackQuote = document.querySelector(".feedback-quotes");
-        console.dir(feedbackQuote.children);
-        const p = document.createElement("p");
-        p.textContent = "Pick a QUOTE!";
-        feedbackQuote.append(p);
-    }    
+    // Select all nodes with a class of 'quotes' and add them a class of 'select-quote'
+    addStylesToElement("quote", ["select-quote", "pointer"]);
 });
 

@@ -79,3 +79,29 @@ export function clearAllChildren(parentClass) {
     const parent = Array.from(document.querySelector(`.${parentClass}`).children);
     parent.forEach((item) => item.remove());
 }
+
+export function createFeedbackElement(parentClass, classesToAdd, textContent) {
+    const feedbackQuote = document.querySelector(`.${parentClass}`);
+    const p = document.createElement("p");
+    const i = document.createElement("i");
+    console.log(...classesToAdd);
+    i.classList.add(...classesToAdd);
+    p.textContent = textContent;
+    p.append(i);
+    feedbackQuote.append(p);
+}
+
+// Select all nodes with a class of 'elementsClass' and add them one or multiple classes
+export function addStylesToElement(elementsClass, stylesToAdd) {
+    const quoteNodes = document.querySelectorAll(`.${elementsClass}`);
+    quoteNodes.forEach(item => {
+        item.classList.add(...stylesToAdd);
+    });
+}
+
+export function removeStylesToElement(elementsClass, stylesToRemove) {
+    const quoteNodes = document.querySelectorAll(`.${elementsClass}`);
+    quoteNodes.forEach(item => {
+        item.classList.remove(...stylesToRemove);
+    });
+}

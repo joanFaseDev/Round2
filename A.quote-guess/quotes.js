@@ -33,6 +33,38 @@ export function getQuotes() {
         {
             quote: "You only live once, but if you do it right, once is enough.",
             author: "Mae  West",
+        },
+        {
+            quote: "A wise man can learn more from a foolish question than a fool can learn from a wise answer.",
+            author: "Bruce Lee",
+        },
+        {
+            quote: "Do not go where the path may lead, go instead where there is no path and leave a trail. ",
+            author: "Ralph Waldo Emerson",
+        },
+        {
+            quote: "The only impossible journey is the one you never begin.",
+            author: "Tony Robbins",
+        },
+        {
+            quote: "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma, which is living with the results of other people's thinking.",
+            author: "Steve Jobs",
+        },
+        {
+            quote: "Success usually comes to those who are too busy to be looking for it.",
+            author: "Henry David Thoreau",
+        },
+        {
+            quote: "The way to get started is to quit talking and begin doing.",
+            author: "Walt Disney",
+        },
+        {
+            quote: "If you set your goals ridiculously high and it's a failure, you will fail above everyone's else's success.",
+            author: "James Cameron",
+        },
+        {
+            quote: "Success is walking from failure to failure with no loss of enthusiasm.",
+            author: "Winston Churchill",
         }
     ];
 }

@@ -28,12 +28,19 @@ This project is about buildind a small-scope application using HTML, CSS, vanill
 - [] Add a 'gray' color style to 'quote' or 'author' data when they can't be clicked.
 - [X] Create a function to remove all previous visual feedbacks before adding new ones.
 - [X] If there are no more quotes/authors in the pool THEN the game is over and the result can be compute.
-- [] If a quote or an author is clicked:
+- [X] Error: The feedback style on quote elements is active even when the user has to pick an author. The style need to be set ONLY when the user has to pick a quote. Same logic for author elements.
+- [X] Error: The feedback style is also applied to the elements in the 'answer' pool. The style need to be applied only on the elements that can actually be clicked to not confuse the user.
+- [X] If a quote or an author is clicked:
     - [X] The element is clone then placed within a special container with a dedicated style. The original element is removed from the DOM.
     - [X] Refactor the code to clone and display the clicked elements.
-    - [] All other quotes/authors (depending on what type of data the user has clicked) are disabled and can't be clicked until an author/quote has been associated.
+    - [X] All other quotes/authors (depending on what type of data the user has clicked) are disabled and can't be clicked until an author/quote has been associated.
     - [X] Once quote and author have been selected they're horizontally aligned in the container.
-    - [] Then the user can once again select a quote or author in the elements left in the columns.
+    - [X] Then the user can once again select a quote or author in the elements left in the columns.
+- [] Once an 'author' element has been clicked, associate it with the previously clicked 'quote' element and store the date.
+- [] When the game is over, compare each pair 'quote'/'author' chose by the user to the corresponding 'quote'/'author' in the quote file.
+- [] For each good answer, the user get a point.
+- [] Good and bad answers have a different style (plus an icon associated) to make it obvious to the user which answer was wrong and which one was right.
+- [] Once the game is over, display the score and ask the user if it wants to play again.
 
 ## Links
 [Sass Basics](https://sass-lang.com/guide/)
