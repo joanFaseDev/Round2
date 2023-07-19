@@ -31,6 +31,10 @@ $c-answer-author-1: #000;
 $c-answer-author-2: #000;
 $c-answer-author-3: #FFF;
 $c-answer-author-4: #FFF;
+$wrong-answer-bg: #e71d36;
+$wrong-answer-c: #FFF;
+$result-message-bg: #adf7b6;
+$result-message-c: #000;
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -50,6 +54,44 @@ html {
     justify-items: center;
     align-items: start;
     grid-template-columns: 1fr 100px 1fr;
+}
+
+.result {
+    width: 80%;
+    margin: 3rem auto 2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+
+    p {
+        background-color: $wrong-answer-bg;
+        color: $wrong-answer-c;    
+        font-family: $feedback-font-family;
+        font-size: 1.2rem;
+        text-align: justify;
+        letter-spacing: 1px;
+        padding: 2rem 1.5rem;
+        border-radius: 15px;
+    }
+
+    i {
+        padding-right: 1rem;
+    }
+
+    .result-message {
+        background-color: $result-message-bg;
+        color: $result-message-c;
+    }
+}
+
+.bold {
+    font-size: 1.1rem;
+    font-family: $default-font-family;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-align: center;
+    border-radius: 15px;
 }
 
 .feedback-quotes, .feedback-authors, .wrapper-quotes, .wrapper-authors, .wrapper-answer-quotes, .wrapper-answer-authors {

@@ -36,11 +36,12 @@ This project is about buildind a small-scope application using HTML, CSS, vanill
     - [X] All other quotes/authors (depending on what type of data the user has clicked) are disabled and can't be clicked until an author/quote has been associated.
     - [X] Once quote and author have been selected they're horizontally aligned in the container.
     - [X] Then the user can once again select a quote or author in the elements left in the columns.
-- [] Once an 'author' element has been clicked, associate it with the previously clicked 'quote' element and store the date.
-- [] When the game is over, compare each pair 'quote'/'author' chose by the user to the corresponding 'quote'/'author' in the quote file.
-- [] For each good answer, the user get a point.
-- [] Good and bad answers have a different style (plus an icon associated) to make it obvious to the user which answer was wrong and which one was right.
+- [X] Once an 'author' element has been clicked, associate it with the previously clicked 'quote' element and store the date.
+- [X] When the game is over, compare each pair 'quote'/'author' chose by the user to the corresponding 'quote'/'author' in the quote file.
+- [X] For each good answer, the user get a point.
+- [X] Good and bad answers have a different style (plus an icon associated) to make it obvious to the user which answer was wrong and which one was right.
 - [] Once the game is over, display the score and ask the user if it wants to play again.
+- [] Host the application so everyone can test it (it also makes you accountable which is good for personal development!).
 
 ## Links
 [Sass Basics](https://sass-lang.com/guide/)

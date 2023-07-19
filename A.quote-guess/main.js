@@ -18,10 +18,39 @@ const authors = shuffleArray(getObjectValues(items, "author"));
 const handler = {
     // Initialize 'lastItemClicked' with 'author' so the user can only select a quote when the game starts.
     lastItemClicked: "author",
+    currentIndexAnswer: 0,
+    answers: [],
+    // Make a copy of the pairs quote/author used for the game so that it can be used later to compute its result.
+    solution: [...items],
+    userPoints: 0, 
     setLastItem(lastItem) {
         this.lastItemClicked = lastItem; 
     },
+    setNewQuote(evt) {
+        const answer = {};
+        answer.quote = evt.target.textContent;
+        this.answers.push(answer);
+    },
+    setNewAuthor(evt) {
+        const author = evt.target.textContent;
+        this.answers[this.getIndexAnswer()].author = author;
+        this.incrementIndexAnswer();
+    },
+    getIndexAnswer() {
+        return this.currentIndexAnswer;
+    },
+    getUserPoints() {
+        return this.userPoints;
+    },
+    incrementIndexAnswer() {
+        this.currentIndexAnswer++;
+    },
+    incrementUserPoints() {
+        this.userPoints++;
+    }
 };
+
+console.log(handler.solution);
 
 // Is called when the document, its elements and styles are fully loaded.
 window.addEventListener('load', (evt) => {
@@ -29,8 +58,10 @@ window.addEventListener('load', (evt) => {
     displayItems(authors, 4, "wrapper-authors", "author", ".start");
 
     document.querySelectorAll(".quote").forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('click', (evt) => {
             if (checkPropertyValue(handler, "lastItemClicked", "author")) {
+                handler.setNewQuote(evt);
+                
                 clearAllChildren("feedback-quotes");
                 removeStylesToElement("quote", ["select-quote", "pointer"]);
                 addStylesToElement("author", ["select-author", "pointer"]);
@@ -46,8 +77,10 @@ window.addEventListener('load', (evt) => {
     });
     
     document.querySelectorAll(".author").forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('click', (evt) => {
             if (checkPropertyValue(handler, "lastItemClicked", "quote")) {
+                handler.setNewAuthor(evt);
+
                 clearAllChildren("feedback-authors");
                 removeStylesToElement("author", ["select-author", "pointer"]);
                 addStylesToElement("quote", ["select-quote", "pointer"]);
@@ -64,6 +97,32 @@ window.addEventListener('load', (evt) => {
                     // Clear all visual feedbacks now that the game is over
                     clearAllChildren("feedback-quotes");
                     removeStylesToElement("quote", ["select-quote", "pointer"]);
+                    // For each pair quote/author displayed, check the user's corresponding answer.
+                    handler.solution.forEach(item => {
+                        const {quote, author} = item;
+                        handler.answers.forEach(answer => {
+                            const {quote: answerQuote, author: answerAuthor} = answer;
+                            if (quote === answerQuote) {
+                                // If both quote & author were guessed correctly
+                                if (author === answerAuthor) {
+                                    handler.incrementUserPoints();
+                                    console.log(`Correct!\nThe author of "${answerQuote}" is ${answerAuthor}.`);
+                                // If a quote wasn't associated with its rightful author    
+                                } else {
+                                    const parent = document.querySelector(".result");
+                                    const p = document.createElement("p");
+                                    p.innerHTML = `<i class="fa-solid fa-circle-xmark fa-bounce fa-xl"></i>You guessed wrong. You thought that <span class="bold">${answerAuthor}</span> was the author of the quote <span class="bold">"${answerQuote}"</span>.\nIts true author is <span class="bold">${author}</span>.`;
+                                    parent.append(p);
+                                }
+                            }
+                        })
+
+                    });
+                    const parent = document.querySelector(".result");
+                    const result = document.createElement("p");
+                    result.classList.add("result-message");
+                    result.innerHTML = `You got <span class="bold">${handler.getUserPoints()}</span> points. ${(handler.getUserPoints() === handler.solution.length) ? "Terrific! You correctly associated all quotes with their respective authors! Congratulation!" : ""}`;
+                    parent.append(result);
                 // There is still authors left to associate
                 } else {
                     handler.setLastItem("author");

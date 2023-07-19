@@ -21,6 +21,41 @@ html {
   grid-template-columns: 1fr 100px 1fr;
 }
 
+.result {
+  width: 80%;
+  margin: 3rem auto 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+.result p {
+  background-color: #e71d36;
+  color: #FFF;
+  font-family: "Pangolin", cursive;
+  font-size: 1.2rem;
+  text-align: justify;
+  letter-spacing: 1px;
+  padding: 2rem 1.5rem;
+  border-radius: 15px;
+}
+.result i {
+  padding-right: 1rem;
+}
+.result .result-message {
+  background-color: #adf7b6;
+  color: #000;
+}
+
+.bold {
+  font-size: 1.1rem;
+  font-family: "Merriweather", serif;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-align: center;
+  border-radius: 15px;
+}
+
 .feedback-quotes, .feedback-authors, .wrapper-quotes, .wrapper-authors, .wrapper-answer-quotes, .wrapper-answer-authors {
   display: grid;
   row-gap: 2rem;
