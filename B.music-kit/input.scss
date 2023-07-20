@@ -1,0 +1,40 @@
+/* input.scss */
+
+$default-font-size: 18px;
+$key-width: 100px;
+$key-height: 100px;
+$key-bg: #ff0080;
+$key-c: #FFF;
+$section-bg: #8000ff;
+$third-color: #0080ff;
+$easing-function: cubic-bezier(0.76, 0, 0.24, 1);
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: $default-font-size;
+}
+
+.section {
+    width: 80%;
+    background-color: $section-bg;
+    padding: 2rem;
+    margin: 3rem auto;
+}
+
+.key {
+    width: $key-width;
+    height: $key-height;
+    background-color: $key-bg;
+    color: $key-c;
+    border: 4px solid $key-c;
+    transition: all .1s $easing-function;
+}
+
+.is-pressed {
+    transform: translateY(-20px) scale(1.1);
+}

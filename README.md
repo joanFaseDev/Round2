@@ -40,4 +40,14 @@ I wrote the logic to save each pair quote/author selected by the user. At the en
 I have yet to implement the logic to restart the game if the user wishes to. I also want to grow the pool of pairs of quotes/authors. Finally, I wish to find a way to host this application as well as the future ones I'll be developing for this round 2 of the 100 days of code challenge. I don't have a lot of time during the week, that's why I've decided to start a new project tomorrow and finish this one this weekend as the amount of work left to do is small but requires research on my part.
 I don't know yet what the second project will be, I'll think about it while working my night shift!
 
-[Day 5 - Quote Guess]()
+[Day 5 - Quote Guess](https://github.com/joanFaseDev/Round2/commit/a684280859e18c262d61a96e62ae0d1b24d546e5)
+
+
+# Day 6 - July 20, 2023
+
+I started a new small-scope application based on a project from [Wes Bos website](https://wesbos.com/). My goal is to build the application on my own and then, once it is finished, compare what I did with the work of a more experienced developer. 
+The application must display a set of 'music keys', each key is associated with a letter and a sound. By pressing the corresponding character on the keyboard, the user will trigger the sound plus visual feedback.
+I wrote the code to listen for the user input, check if the key pressed corresponds to one of the 'music key' and, if that is the case, add a style on the 'music keys' element. I also wrote the part about removing the style once the key is released.
+Tomorrow, I'll focus on the sound/music part: how to access the sounds, how to play them, ...
+
+[Day 6 - Music Kit]()

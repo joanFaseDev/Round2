@@ -1,0 +1,32 @@
+/* input.scss */
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 18px;
+}
+
+.section {
+  width: 80%;
+  background-color: #8000ff;
+  padding: 2rem;
+  margin: 3rem auto;
+}
+
+.key {
+  width: 100px;
+  height: 100px;
+  background-color: #ff0080;
+  color: #FFF;
+  border: 4px solid #FFF;
+  transition: all 0.1s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.is-pressed {
+  transform: translateY(-20px) scale(1.1);
+}
+
+/*# sourceMappingURL=styles.css.map */
