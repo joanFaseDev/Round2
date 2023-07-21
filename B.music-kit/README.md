@@ -14,8 +14,9 @@ My objective is to recreate Wes Bos's application without watching its video. On
 - [X] Find a way to listen for any keyboard's key being released.
 - [X] When a key is released, save the character associated with it.
 - [X] Check if there is a music key associated with this character AND if that music key has a visual feedback applied on it. If that is the case, remove the visual feedback (The goal here is to only apply the visual feedback for a short amount of time, when the key is pressed.).
-- [] Find a way to play a sound/music in the browser.
+- [X] Find a way to play a sound/music in the browser.
 - [] Access various sounds/musics through a base URL plus a query data corresponding to a specific sound/music.
 - [] Associate each 'music key' with a query data.
-- [] When a 'music key' is activated, play a sound using the base URL plus the query data contained in the specific 'music key'.
+- [X] When a 'music key' is activated, play a sound using the base URL plus the query data contained in the specific 'music key'.
 - [] Find a 2D styled image to insert as a background for the application.
+- [] Find a way to host wav files and listen to them from the application by using their associated URL.

@@ -50,4 +50,11 @@ The application must display a set of 'music keys', each key is associated with 
 I wrote the code to listen for the user input, check if the key pressed corresponds to one of the 'music key' and, if that is the case, add a style on the 'music keys' element. I also wrote the part about removing the style once the key is released.
 Tomorrow, I'll focus on the sound/music part: how to access the sounds, how to play them, ...
 
-[Day 6 - Music Kit]()
+[Day 6 - Music Kit](https://github.com/joanFaseDev/Round2/commit/36e4800080437cc8396cb2700f55728ca3de7cff)
+
+
+# Day 7 - July 21, 2023
+
+I searched for good sound samples I could use for the application but I couldn't find any that really suits me so I resolved to create them myself using open-source software. I'm currently using Ubuntu which makes the list of software available shorter. I found one I like a lot named [LabChirp](http://labbed.net/software/labchirp/) but executing it on Linux requires to use Mono which I never did before. It took me a little time but I managed to make it work and produce some good (for my tastes) sounds. Then I tried to host them on GitHub but couldn't read them from my JS script as the MIME type of the file was set to text/plain. I didn't solve the issue and had little time left to code so I directly host the sounds in my application's repository, wrote a few lines of code to associate 'music keys' with sounds using their common name, and added a couple of styles for good measure. It's functional but there's a problem to solve as keeping a key down will somehow require the next key to be double-tap to produce a sound. I'll check that tomorrow and I'll also try to host the first application 'Quote Guess'.
+
+[Day 7 - Music Kit]()

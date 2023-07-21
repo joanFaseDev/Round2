@@ -1,5 +1,6 @@
 // main.js
 const keys = Array.from(document.querySelectorAll(".key"));
+let isPlaying = false;
 const keysPressed = [];
 
 document.addEventListener('keydown', (evt) => {
@@ -11,7 +12,15 @@ document.addEventListener('keydown', (evt) => {
         const musicKey = correspondance[0];
         musicKey.classList.add('is-pressed');
         keysPressed.push(musicKey);
+        
+        if (!isPlaying) {
+            const url = `./sounds/${musicKey.dataset.sound}.wav`;
+            const sound = new Audio(url);
+            sound.play();
+            isPlaying = true;
+        }
     }
+
 });
 
 document.addEventListener('keyup', (evt) => {
@@ -20,4 +29,5 @@ document.addEventListener('keyup', (evt) => {
     if (musicKey && musicKey.classList.contains('is-pressed')) {
         musicKey.classList.remove('is-pressed');
     }
+    isPlaying = false;
 });
